@@ -2,6 +2,7 @@ import { Formik, Field, ErrorMessage, Form } from 'formik'
 import {default as BForm} from 'react-bootstrap/Form'
 import Container from 'react-bootstrap/Container'
 import Button from 'react-bootstrap/Button'
+import { Link } from 'react-router-dom'
 import Card from 'react-bootstrap/Card'
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
@@ -67,7 +68,7 @@ export default function Register(){
 							</Formik>
 						</Card.Body>
 						<Card.Footer className='text-center'>
-							<a href='/auth/login/'>Уже есть аккаунт? Войдите</a>
+							<Link to='/auth/login/'>Уже есть аккаунт? Войдите</Link>
 						</Card.Footer>
 					</Card>
 				</Col>

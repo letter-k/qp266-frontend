@@ -1,5 +1,6 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import Register from './components/Auth/Register/Register'
+import { baseUrl } from './shared/constants/baseUrl'
 import Login from './components/Auth/Login/Login'
 import Board from './components/Board/Board'
 import Base from './components/Base/Base'
@@ -8,7 +9,7 @@ import './App.scss'
 
 function App() {
   return (
-    <BrowserRouter>
+    <BrowserRouter basename={baseUrl}>
       <Routes>
         <Route>
           <Route path='/' element={<Base/>}>

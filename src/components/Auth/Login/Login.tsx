@@ -3,9 +3,11 @@ import { tokenToStorageSet } from '../../../shared/libs/localStorageHandler'
 import { Formik, Field, ErrorMessage, Form } from 'formik'
 import Container from 'react-bootstrap/Container'
 import { apiService } from '../../../shared/libs/apiService'
-import Button from 'react-bootstrap/Button'
-import Card from 'react-bootstrap/Card'
+import { baseUrl } from '../../../shared/constants/baseUrl'
 import {default as BForm} from 'react-bootstrap/Form'
+import Button from 'react-bootstrap/Button'
+import { Link } from 'react-router-dom'
+import Card from 'react-bootstrap/Card'
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
 import { useState } from 'react'
@@ -14,7 +16,7 @@ import * as Yup from 'yup'
 export const loginUser = async (data: LoginCredentials) => {
 	const result = await apiService.post('auth/login/', {json: data}).json<LoginApiCredentials>()
 	tokenToStorageSet(result.token)
-	window.location.replace('/')
+	window.location.replace(baseUrl)
 }
 
 export default function Login(){
@@ -80,7 +82,7 @@ export default function Login(){
 							</Formik>
 						</Card.Body>
 						<Card.Footer className='text-center'>
-							<small>Нет аккаунта? <a href='/auth/register/'>Зарегистрируйтесь</a></small>
+							<small>Нет аккаунта? <Link to='/auth/register/'>Зарегистрируйтесь</Link></small>
 						</Card.Footer>
 					</Card>
 				</Col>
